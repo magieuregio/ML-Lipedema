@@ -87,9 +87,6 @@ def validate_excel_file(df):
 if uploaded_file is not None:
     # Read the uploaded Excel file
     df = pd.read_excel(uploaded_file, sheet_name=0)
-    
-    #Check the file
-    validate_excel_file(df)
 
     # Standardize column names
     df.columns = df.columns.str.strip().str.lower()
@@ -106,6 +103,9 @@ if uploaded_file is not None:
 
     # Save the uploaded file to session state for use in the next page
     st.session_state.df = df
+
+#Check the file
+validate_excel_file(df)
 
 # Load raw data for model training
 raw_data = pd.read_excel("raw_data.xlsx")
