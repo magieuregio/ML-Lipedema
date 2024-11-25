@@ -55,9 +55,6 @@ try:
 except FileNotFoundError:
     st.error("The file test_data2.xlsx was not found in the repository.")
 
-# File uploader widget
-uploaded_file = st.file_uploader("Choose an Excel file", type="xlsx")
-
 # Define required columns for validation
 REQUIRED_COLUMNS = ['id', 'gender']  # Add other required columns as needed
 
