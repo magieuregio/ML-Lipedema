@@ -112,21 +112,6 @@ st.write("Upload an Excel file containing your data. The data in the file will b
 
 st.write("The excel file shold contain 32 columns, each row should represent one sample. You can view and download an example file here:")
 
-# File path to the example Excel file
-example_file_path = "test_data2.xlsx"
-
-# Read the example Excel file in binary mode
-with open(example_file_path, "rb") as file:
-    example_file_binary = file.read()
-
-# Add a download button to download the existing file
-st.download_button(
-    label="Download Example Excel File",
-    data=example_file_binary,
-    file_name="test_data2.xlsx",
-    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-)
-
 # Update the path to point to your Excel file
 excel_file = "test_data.xlsx"
 
