@@ -17,7 +17,8 @@ pages = {
     "Dataset": "page_2",
     "Upload your sample": "page_3",
     "Explanation of the mathematical model": "page_4.5",
-    "External collaborators": "page_5"
+    "External collaborators": "page_5",
+    "Download sample": "page_6"
 }
 
 # Sidebar for navigation
