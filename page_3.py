@@ -58,6 +58,34 @@ except FileNotFoundError:
 # File uploader widget
 uploaded_file = st.file_uploader("Choose an Excel file", type="xlsx")
 
+# Define required columns for validation
+REQUIRED_COLUMNS = ['id', 'gender']  # Add other required columns as needed
+
+# File uploader widget
+uploaded_file = st.file_uploader("Choose an Excel file", type="xlsx")
+
+def validate_excel_file(df):
+    """Validates the uploaded Excel file."""
+    # Check if required columns are present
+    missing_columns = [col for col in REQUIRED_COLUMNS if col not in df.columns]
+    if missing_columns:
+        st.error(f"The uploaded file is missing the following required columns: {', '.join(missing_columns)}")
+        return False
+
+    # Ensure no missing values in required columns
+    for col in REQUIRED_COLUMNS:
+        if df[col].isnull().any():
+            st.error(f"The column '{col}' contains missing values. Please clean your data and try again.")
+            return False
+
+    # Additional checks (e.g., data types) can be added here
+    if not pd.api.types.is_numeric_dtype(df['id']):
+        st.error("The 'id' column must contain numeric values.")
+        return False
+    
+    return True
+
+
 # Check if a file is uploaded
 if uploaded_file is not None:
     # Read the uploaded Excel file
