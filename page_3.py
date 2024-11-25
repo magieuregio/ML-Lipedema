@@ -90,6 +90,10 @@ if uploaded_file is not None:
 
     # Standardize column names
     df.columns = df.columns.str.strip().str.lower()
+
+    # Validate the uploaded file
+    if not validate_excel_file(df):
+        st.stop()  # Halt execution if validation fails
     
     # Display the DataFrame
     st.write("Data preview:")
@@ -103,9 +107,7 @@ if uploaded_file is not None:
 
     # Save the uploaded file to session state for use in the next page
     st.session_state.df = df
-
-#Check the file
-validate_excel_file(df)
+    
 
 # Load raw data for model training
 raw_data = pd.read_excel("raw_data.xlsx")
