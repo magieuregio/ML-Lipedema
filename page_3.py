@@ -116,13 +116,25 @@ st.write("The excel file shold contain 32 columns, each row should represent one
 excel_file = "test_data.xlsx"
 
 # Read the first sheet of the Excel file
-df = pd.read_excel(excel_file, sheet_name=0)  # Use sheet_name='Sheet1' if you know the sheet name
+df = pd.read_excel(excel_file, sheet_name=0)  
 
 # Display the DataFrame
-st.dataframe(df)  # Use st.table(df) if you prefer a static table
+st.dataframe(df)  
 
 # File uploader widget
 uploaded_file = st.file_uploader("Choose an Excel file", type="xlsx")
+
+# Read the example Excel file in binary mode
+with open("C:\Users\Utente\Downloads\ML lipedema\APP", "rb") as file:
+    example_file_binary = file.read()
+
+# Add a download button to download the existing file
+st.download_button(
+    label="Download Example Excel File",
+    data=example_file_binary,
+    file_name="test_data2.xlsx",
+    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+)
 
 # Check if a file is uploaded
 if uploaded_file is not None:
