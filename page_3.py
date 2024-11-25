@@ -88,6 +88,9 @@ if uploaded_file is not None:
     # Read the uploaded Excel file
     df = pd.read_excel(uploaded_file, sheet_name=0)
     
+    #Check the file
+    validate_excel_file(df)
+
     # Standardize column names
     df.columns = df.columns.str.strip().str.lower()
     
