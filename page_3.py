@@ -23,7 +23,7 @@ st.write("In this page you can upload your samples data.")
 st.subheader("Upload the excel file with the sample data.")
 st.write("Upload an Excel file containing your data. The data in the file will be analyzed with our machine learning model. At the end of the analysis, each sample will be predicted to be **diseased** or **healthy**")
 
-st.write("The excel file shold contain 32 columns, each row should represent one sample. You can view and download an example file here:")
+st.write("The excel file shold contain 32 columns, each row should represent one sample. You can view an example file here:")
 
 # Update the path to point to your Excel file
 excel_file = "test_data.xlsx"

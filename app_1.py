@@ -17,8 +17,7 @@ pages = {
     "Dataset": "page_2",
     "Upload your sample": "page_3",
     "Explanation of the mathematical model": "page_4.5",
-    "External collaborators": "page_5",
-    "Download sample": "page_6"
+    "External collaborators": "page_5"
 }
 
 # Sidebar for navigation
@@ -53,7 +52,8 @@ st.markdown(
     </style>
     <div class="footer">
         <img src="data:image/png;base64,{logo_base64}" alt="Company Logo">
-        <span>Contact us at: <strong>+39 0365.62.061</strong></span>
+        <span>Contact us at: </span>
+        <span> Tel: <strong>+39 0365.62.061</strong><span>
         <span> or at the email: <strong>...</strong></span>
     </div>
     """,
